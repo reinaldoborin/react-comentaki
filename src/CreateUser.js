@@ -16,18 +16,39 @@ const CreateUser = () => {
 
     return (
         <>
-            <h3>Criar nova conta:</h3>
+            <h3 className="ui dividing header">Criar conta</h3>
 
             {
                 auth.createUser.createUserState.error !== '' &&
-                <p>{auth.createUser.createUserState.error}</p>
+                <div className="ui warning message">
+                    <i className="close icon"></i>
+                    <div className="header">
+                        Erro  </div>
+                    {auth.createUser.createUserState.error}
+                </div>
             }
 
-            <input type='text' placeholder='Seu e-mail' value={form.email} onChange={onChange('email')} />
-            <input type='password' placeholder='Sua senha' value={form.pwd} onChange={onChange('pwd')} />
-            <button onClick={() => {
-                auth.createUser.createUser(form.email, form.pwd)
-            }}>Criar Conta</button>
+            <div class="ui form">
+                <div className="field">
+                    <label>Name</label>
+                    <div className="two fields">
+                        <div className="field">
+                            <input type='text' placeholder='Seu e-mail' value={form.email} onChange={onChange('email')} />
+                        </div>
+                        <div className="field">
+                            <input type='password' placeholder='Sua senha' value={form.pwd} onChange={onChange('pwd')} />
+                        </div>
+                    </div>
+                    <button className="ui positive basic button" onClick={() => {
+                        auth.createUser.createUser(form.email, form.pwd)
+                    }}>Registrar
+        </button>
+                    <br />        <br />
+
+
+                </div>
+            </div>
+
         </>
     )
 }

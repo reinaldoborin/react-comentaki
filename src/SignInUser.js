@@ -15,20 +15,33 @@ const SignInUser = () => {
     }
 
     return (
-        <>
-            <h3>Entrar na sua conta:</h3>
+        <div>
+        <h3 className="ui dividing header">Conectar</h3>
 
             {
                 auth.signInUser.signInUserState.error !== '' &&
                 <p>{auth.signInUser.signInUserState.error}</p>
             }
 
-            <input type='text' placeholder='Seu e-mail' value={form.email} onChange={onChange('email')} />
-            <input type='password' placeholder='Sua senha' value={form.pwd} onChange={onChange('pwd')} />
-            <button onClick={() => {
-                auth.signInUser.signInUser(form.email, form.pwd)
-            }}>Entrar</button>
-        </>
+<div class="ui form">
+    <div className="field">
+    <label>Name</label>
+        <div className="two fields">
+            <div className="field">
+                <input type='text' placeholder='Seu e-mail' value={form.email} onChange={onChange('email')} />
+            </div>
+            <div className="field">
+                 <input type='password' placeholder='Sua senha' value={form.pwd} onChange={onChange('pwd')} />
+            </div>
+        </div>
+        <button className="ui primary basic button" onClick={() => {
+        auth.signInUser.signInUser(form.email, form.pwd)
+        }}>Entrar
+        </button>
+    </div>
+</div>
+
+        </div>
     )
 }
 

@@ -26,10 +26,14 @@ const NewComment = () => {
         }
     }
     return (
-        <div>
-            <textarea value={comment} onChange={evt => setComment(evt.target.value)} />
-            <br></br>
-            <button onClick={createComment}> Comentar</button>
+
+        <div className="ui form">
+            <h3 className="ui dividing header">Comentar</h3>
+
+            <div className='field'>
+                <textarea rows='2' value={comment} onChange={evt => setComment(evt.target.value)} />
+            </div>
+            <button className="ui primary basic button" onClick={createComment}> Comentar</button>
         </div>
     )
 }

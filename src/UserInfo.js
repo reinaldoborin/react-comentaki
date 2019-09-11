@@ -13,8 +13,11 @@ const FormDisplayName = ({ displayName, user }) => {
     }
     return (
         <div>
-            <input type='text' value={newDisplayName} onChange={onChange} />
-            <button onClick={save}>Salvar DisplayName</button>
+            <div class="ui action input">
+                <input type="text" value={newDisplayName} onChange={onChange} />
+                <button onClick={save} className="ui button">Trocar Apelido</button>
+            </div>
+
         </div>
     )
 }
@@ -32,9 +35,10 @@ const UserInfo = () => {
 
     return (
         <>
-            <p>Olá {dn}!</p>
+            <h3 className="ui dividing header">Olá, {dn}</h3>
             <FormDisplayName displayName={dn} user={auth.user} />
-            <button onClick={auth.signout}>Sair</button>
+            <br/>
+            <button className="mini ui center floated negative basic button" onClick={auth.signout}>Sair</button>
         </>
     )
 }
