@@ -20,7 +20,12 @@ const SignInUser = () => {
 
             {
                 auth.signInUser.signInUserState.error !== '' &&
-                <p>{auth.signInUser.signInUserState.error}</p>
+                <div className="ui warning message">
+                <i className="close icon"></i>
+                <div className="header">
+                    Erro  </div>
+                    <p>{auth.signInUser.signInUserState.error}</p>
+                    </div>
             }
 
 <div class="ui form">
