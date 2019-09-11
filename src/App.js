@@ -1,32 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
-import firebase from './firebase'
 
 import NewComment from './NewComment'
 import Comments from './Comments'
+import CreateUser from './CreateUser'
 
-/* firebase
-  .auth()
-  .createUserWithEmailAndPassword('msndoikky@hotmail.com', 'abc123')
-  .then(user => {
-    user.displayName = 'Reinaldo Borin'
-    firebase.auth().updateCurrentUser(user)
-  }) 
-
-firebase.auth().onAuthStateChanged(user => {
-  if (user) {
-    user.updateProfile({ displayName: 'Reinaldo Borin' })
-  }
-})
-*/
+import { AuthProvider } from './auth'
 
 function App() {
   return (
-    <div>
-      <NewComment />
-      <Comments />
-    </div>
+    <AuthProvider>
+      <div>
+        <NewComment />
+        <Comments />
+        <CreateUser />
+      </div>
+    </AuthProvider>
   )
 }
 
-export default App;
+export default App
